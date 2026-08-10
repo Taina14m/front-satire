@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Satire - Bonecos</title>
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/home.css">
+  <title>Satire - início</title>
+  <link rel="stylesheet" href="../../store/css/global.css">
+  <link rel="stylesheet" href="../../store/css/home.css">
+  <link rel="stylesheet" href="../../store/css/modal.css">
 </head>
 <body>
   <header class="header">
@@ -14,23 +15,21 @@
     </h1>
     <nav class="header__nav">
       <button class="header__access-btn" id="access-toggle" aria-label="Acessibilidade" title="Acessibilidade">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor"/>
-        </svg>
+        <img src="../../store/assets/contrast.svg" alt="Botão de alto contraste" width="24" height="24">
       </button>
       <div class="access-menu" id="access-menu">
         <button class="access-menu__item" id="access-contrast">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor"/></svg>
-          Alto contraste
+            <img src="../../store/assets/contrast.svg" alt="Botão de alto contraste" width="24" height="24">
+            Alto contraste
         </button>
       </div>
-      <a href="pages/login.html" class="header__link">Entrar</a>
-      <a href="pages/register.html" class="header__btn">Cadastre-se</a>
+      <a href="" class="header__link">Entrar</a>
+      <a href="" class="header__btn">Cadastre-se</a>
     </nav>
   </header>
 
   <main class="main-home">
-    <!-- Hero -->
+    <!-- Frase inicial -->
     <section class="hero">
       <h2 class="hero__title">
         <span>C</span><span>O</span><span>L</span><span>E</span><span>C</span><span>I</span><span>O</span><span>N</span><span>E</span>&nbsp;<span>D</span><span>I</span><span>V</span><span>E</span><span>R</span><span>S</span><span>Ã</span><span>O</span>
@@ -38,7 +37,7 @@
       <p class="hero__subtitle">Descubra personagens incríveis e transforme<br>cada momento em diversão</p>
     </section>
 
-    <!-- Seção 1 -->
+    <!-- Seção circo -->
     <section class="section section--pink">
       <div class="section__card">
         <h3 class="section__title" data-section-name="Seção 1">Circo</h3>
@@ -91,7 +90,7 @@
       </div>
     </section>
 
-    <!-- Seção 2 -->
+    <!-- Seção instituto -->
     <section class="section section--purple">
       <div class="section__card">
         <h3 class="section__title" data-section-name="Seção 2">Instituto J&ampf</h3>
@@ -144,7 +143,7 @@
       </div>
     </section>
 
-    <!-- Seção 3 -->
+    <!-- Seção tradicional -->
     <section class="section section--peach">
       <div class="section__card">
         <h3 class="section__title" data-section-name="Seção 3">Tradicional</h3>
@@ -198,15 +197,15 @@
     </section>
 
     <!-- Decorações -->
-    <img src="assets/images/deco-purple-scribble.svg" alt="" class="home-deco home-deco--top-left" aria-hidden="true">
-    <img src="assets/images/deco-yellow-spiral.svg" alt="" class="home-deco home-deco--top-right" aria-hidden="true">
-    <img src="assets/images/deco-yellow-side.svg" alt="" class="home-deco home-deco--bottom-left" aria-hidden="true">
-    <img src="assets/images/deco-purple-side.svg" alt="" class="home-deco home-deco--bottom-right" aria-hidden="true">
+    <img src="../../store/assets/deco-purple-scribble.svg" alt="" class="home-deco home-deco--top-left" aria-hidden="true">
+    <img src="../../store/assets/deco-yellow-spiral.svg" alt="" class="home-deco home-deco--top-right" aria-hidden="true">
+    <img src="../../store/assets/deco-yellow-side.svg" alt="" class="home-deco home-deco--bottom-left" aria-hidden="true">
+    <img src="../../store/assets/deco-purple-side.svg" alt="" class="home-deco home-deco--bottom-right" aria-hidden="true">
   </main>
 
   <footer class="footer">
-    <img src="assets/images/deco-yellow-footer.svg" alt="" class="footer__deco footer__deco--left" aria-hidden="true">
-    <img src="assets/images/deco-purple-footer.svg" alt="" class="footer__deco footer__deco--right" aria-hidden="true">
+    <img src="../../store/assets/deco-yellow-footer.svg" alt="" class="footer__deco footer__deco--left" aria-hidden="true">
+    <img src="../../store/assets/deco-purple-footer.svg" alt="" class="footer__deco footer__deco--right" aria-hidden="true">
     <div class="footer__content">
       <h2 class="footer__logo">
         <span>S</span><span>A</span><span>T</span><span>I</span><span>R</span><span>E</span>
@@ -220,7 +219,46 @@
     </div>
   </footer>
 
-  <script src="js/carousel.js"></script>
-  <script src="js/accessibility.js"></script>
+  <!-- Informações -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <button class="modal__close" id="modal-close">&times;</button>
+      <div class="modal__img" id="modal-img"></div>
+      <div class="modal__body">
+        <h3 class="modal__title" id="modal-title">Nome do Boneco</h3>
+        <p class="modal__info" id="modal-info">Informações do boneco virão da API.</p>
+        <p class="modal__price" id="modal-price">R$1.000,00</p>
+        <a href="pages/login.html" class="modal__btn-login">Entre para comprar</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../store/js/carousel.js"></script>
+  <script src="../../store/js/accessibility.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const overlay = document.getElementById('modal-overlay');
+      const closeBtn = document.getElementById('modal-close');
+      const modalTitle = document.getElementById('modal-title');
+      const modalInfo = document.getElementById('modal-info');
+      const modalPrice = document.getElementById('modal-price');
+      const modalImg = document.getElementById('modal-img');
+
+      document.querySelectorAll('.figure').forEach(figure => {
+        figure.style.cursor = 'pointer';
+        figure.addEventListener('click', () => {
+          modalTitle.textContent = figure.querySelector('.figure__name').textContent;
+          modalPrice.textContent = figure.querySelector('.figure__price').textContent;
+          modalInfo.textContent = 'Informações do boneco virão da API.';
+          modalImg.style.backgroundColor = getComputedStyle(figure.querySelector('.figure__img')).backgroundColor;
+          overlay.classList.add('modal-overlay--active');
+        });
+      });
+
+      closeBtn.addEventListener('click', () => overlay.classList.remove('modal-overlay--active'));
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('modal-overlay--active'); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') overlay.classList.remove('modal-overlay--active'); });
+    });
+  </script>
 </body>
 </html>
