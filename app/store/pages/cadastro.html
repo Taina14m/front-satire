@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satire - Cadastro</title>
+  <link rel="stylesheet" href="../../store/css/global.css">
+  <link rel="stylesheet" href="../../store/css/cadastro.css">
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">
+      <span>S</span><span>A</span><span>T</span><span>I</span><span>R</span><span>E</span>
+    </h1>
+    <nav class="header__nav">
+      <button class="header__access-btn" id="access-toggle" aria-label="Acessibilidade" title="Acessibilidade">
+        <img src="../../store/assets/contrast.svg" alt="" width="20" height="20">
+      </button>
+      <div class="access-menu" id="access-menu">
+        <button class="access-menu__item" id="access-contrast">
+          <img src="../../store/assets/contrast.svg" alt="" width="16" height="16">
+          Alto contraste
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+    <!-- Imagens decorativas -->
+    <img src="../../store/assets/deco-purple-scribble.svg" alt="" class="deco deco--top-left" aria-hidden="true">
+    <img src="../../store/assets/deco-yellow-spiral.svg" alt="" class="deco deco--top-right" aria-hidden="true">
+    <img src="../../store/assets/deco-yellow-blob.svg" alt="" class="deco deco--bottom-left" aria-hidden="true">
+    <img src="../../store/assets/deco-purple-strokes.svg" alt="" class="deco deco--bottom-right" aria-hidden="true">
+
+    <!-- Cadastro -->
+    <div class="card">
+      <div class="card__outer">
+        <div class="card__inner">
+          <div class="card__content">
+            <h2 class="card__title">
+              <span>C</span><span>A</span><span>D</span><span>A</span><span>S</span><span>T</span><span>R</span><span>O</span>
+            </h2>
+            <p class="card__subtitle">Crie sua conta para começar</p>
+
+            <form class="form">
+              <div class="form__group">
+                <label for="nome" class="form__label">Nome completo</label>
+                <input type="text" id="nome" name="nome" class="form__input">
+              </div>
+
+              <div class="form__row">
+                <div class="form__field">
+                  <label for="email" class="form__label">E-mail</label>
+                  <input type="email" id="email" name="email" class="form__input">
+                </div>
+                <div class="form__field">
+                  <label for="telefone" class="form__label">Telefone</label>
+                  <input type="tel" id="telefone" name="telefone" class="form__input">
+                </div>
+              </div>
+
+              <div class="form__row">
+                <div class="form__field">
+                  <label for="senha" class="form__label">Senha</label>
+                  <input type="password" id="senha" name="senha" class="form__input">
+                </div>
+                <div class="form__field">
+                  <label for="confirmar-senha" class="form__label">Confirmar senha</label>
+                  <input type="password" id="confirmar-senha" name="confirmar-senha" class="form__input">
+                </div>
+              </div>
+
+              <button type="submit" class="form__btn">Criar conta</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../store/js/accessibility.js"></script>
+  <script>
+    document.querySelector('.form').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Remove erros anteriores
+      document.querySelectorAll('.form__error').forEach(el => el.remove());
+      document.querySelectorAll('.form__input--error').forEach(el => el.classList.remove('form__input--error'));
+
+      const campos = [
+        { id: 'nome', msg: 'Preencha o nome' },
+        { id: 'email', msg: 'Preencha o e-mail' },
+        { id: 'telefone', msg: 'Preencha o telefone' },
+        { id: 'senha', msg: 'Preencha a senha' },
+        { id: 'confirmar-senha', msg: 'Confirme a senha' }
+      ];
+
+      let hasError = false;
+
+      campos.forEach(({ id, msg }) => {
+        const input = document.getElementById(id);
+        if (!input.value.trim()) {
+          showError(id, msg);
+          hasError = true;
+        }
+      });
+
+      const senha = document.getElementById('senha').value;
+      const confirmar = document.getElementById('confirmar-senha').value;
+
+      if (senha && confirmar && senha !== confirmar) {
+        showError('confirmar-senha', 'As senhas não coincidem');
+        hasError = true;
+      }
+
+      if (hasError) return;
+
+      sessionStorage.setItem('logado', 'true');
+      window.location.href = 'home.html';
+    });
+
+    function showError(fieldId, message) {
+      const input = document.getElementById(fieldId);
+      input.classList.add('form__input--error');
+      const error = document.createElement('span');
+      error.className = 'form__error';
+      error.textContent = message;
+      input.parentElement.appendChild(error);
+    }
+  </script>
+</body>
+</html>
