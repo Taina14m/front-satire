@@ -1,0 +1,8 @@
+body {
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .card__content {
+    padding: 32px 44px;
+  }
