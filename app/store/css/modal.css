@@ -1,0 +1,128 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+  
+  .modal-overlay--active {
+    display: flex;
+  }
+  
+  .modal {
+    background: #fdf8f4;
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 680px;
+    width: 90%;
+    position: relative;
+    border: 3px dashed transparent;
+    background-image: linear-gradient(#fdf8f4, #fdf8f4), linear-gradient(135deg, #e63946, #f5a623, #9b59b6, #6c5ce7);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+  
+  .modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    font-size: 22px;
+    color: #7a6b63;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .modal__close:hover {
+    background-color: #ede4dd;
+    color: #3d3232;
+  }
+  
+  .modal__img {
+    width: 200px;
+    height: 200px;
+    border-radius: 16px;
+    flex-shrink: 0;
+    background-color: #ede4dd;
+  }
+  
+  .modal__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .modal__title {
+    font-family: 'Sigmar', cursive;
+    font-size: 24px;
+    background: linear-gradient(to right, #e63946, #f5a623, #6c5ce7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .modal__info {
+    color: #7a6b63;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 60px;
+  }
+  
+  .modal__price {
+    font-size: 22px;
+    font-weight: 700;
+    color: #3d3232;
+  }
+  
+  .modal__btn-add {
+    display: inline-block;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(to right, #f5a623, #e74c3c, #9b59b6, #6c5ce7);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-top: 8px;
+  }
+  
+  .modal__btn-add:hover {
+    opacity: 0.9;
+  }
+  
+  .modal__btn-login {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(to right, #f5a623, #e74c3c, #9b59b6, #6c5ce7);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: opacity 0.2s;
+  }
+  
+  .modal__btn-login:hover {
+    opacity: 0.9;
+  }
