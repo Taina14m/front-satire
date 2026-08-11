@@ -1,53 +1,96 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.getElementById('modal-overlay');
-    const closeBtn = document.getElementById('modal-close');
-    const modalTitle = document.getElementById('modal-title');
-    const modalInfo = document.getElementById('modal-info');
-    const modalPrice = document.getElementById('modal-price');
-    const modalImg = document.getElementById('modal-img');
-    const modalBtnCart = document.getElementById('modal-btn-cart');
-  
-    // modal com dados
-    document.querySelectorAll('.figure').forEach(figure => {
-      figure.style.cursor = 'pointer';
-  
-      figure.addEventListener('click', () => {
-        const nome = figure.querySelector('.figure__name').textContent;
-        const preco = figure.querySelector('.figure__price').textContent;
-        const imgBg = getComputedStyle(figure.querySelector('.figure__img')).backgroundColor;
-  
-        modalTitle.textContent = nome;
-        modalPrice.textContent = preco;
-        modalInfo.textContent = 'Informações do boneco virão da API.';
-        modalImg.style.backgroundColor = imgBg;
-  
-        overlay.classList.add('modal-overlay--active');
-      });
+document.addEventListener("DOMContentLoaded", function () {
+  const overlay = document.getElementById("modal-overlay");
+  const closeButton = document.getElementById("modal-close");
+  const title = document.getElementById("modal-title");
+  const info = document.getElementById("modal-info");
+  const price = document.getElementById("modal-price");
+  const image = document.getElementById("modal-img");
+  const variationSelect = document.getElementById("modal-variation");
+  const addButton = document.getElementById("modal-btn-cart");
+
+  function closeModal() {
+    overlay.classList.remove("modal-overlay--active");
+  }
+
+  function setVariations(variations) {
+    variationSelect.innerHTML = "";
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "Selecione uma variação";
+    placeholder.selected = true;
+    placeholder.disabled = true;
+    variationSelect.appendChild(placeholder);
+
+    variations.forEach(function (variation) {
+      const option = document.createElement("option");
+      option.value = variation.id;
+      option.textContent = variation.name + " (" + variation.sku + ") — " + formatCatalogPrice(variation.price);
+      option.disabled = !variation.active || variation.inventory < 1;
+      variationSelect.appendChild(option);
     });
-  
-    // Fechar modal
-    closeBtn.addEventListener('click', () => {
-      overlay.classList.remove('modal-overlay--active');
-    });
-  
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        overlay.classList.remove('modal-overlay--active');
+
+    variationSelect.disabled = variations.length === 0;
+    addButton.disabled = variations.length === 0;
+  }
+
+  async function openProduct(productId) {
+    title.textContent = "Carregando...";
+    info.textContent = "";
+    price.textContent = "";
+    image.style.backgroundImage = "";
+    variationSelect.innerHTML = "";
+    variationSelect.disabled = true;
+    addButton.disabled = true;
+    overlay.classList.add("modal-overlay--active");
+
+    try {
+      const product = await getProduct(productId);
+      const variations = await getVariations(product.id);
+      const productImage = getCatalogImage(product);
+      title.textContent = product.name;
+      info.textContent = product.description || "";
+      price.textContent = getCatalogPrice(product);
+      if (productImage) {
+        image.style.backgroundImage = "url(" + JSON.stringify(productImage.url) + ")";
+        image.style.backgroundPosition = "center";
+        image.style.backgroundRepeat = "no-repeat";
+        image.style.backgroundSize = "cover";
       }
-    });
-  
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        overlay.classList.remove('modal-overlay--active');
-      }
-    });
-  
-    // Botão de adicionar ao carrinho
-    modalBtnCart.addEventListener('click', () => {
-      const nome = modalTitle.textContent;
-      const preco = modalPrice.textContent;
-      const color = modalImg.style.backgroundColor;
-      addToCart(nome, preco, color);
-      overlay.classList.remove('modal-overlay--active');
-    });
+      setVariations(variations);
+    } catch (error) {
+      title.textContent = "Produto indisponível";
+      info.textContent = "Não foi possível carregar os detalhes deste produto.";
+      console.error("Não foi possível carregar o produto.", error);
+    }
+  }
+
+  document.addEventListener("click", function (event) {
+    const figure = event.target.closest(".figure[data-product-id]");
+    if (figure) openProduct(figure.dataset.productId);
   });
+
+  document.addEventListener("keydown", function (event) {
+    const figure = event.target.closest && event.target.closest(".figure[data-product-id]");
+    if (figure && (event.key === "Enter" || event.key === " ")) {
+      event.preventDefault();
+      openProduct(figure.dataset.productId);
+    }
+    if (event.key === "Escape") closeModal();
+  });
+
+  closeButton.addEventListener("click", closeModal);
+  overlay.addEventListener("click", function (event) {
+    if (event.target === overlay) closeModal();
+  });
+
+  addButton.addEventListener("click", async function () {
+    const variationId = variationSelect.value;
+    if (!variationId) return;
+    try {
+      applyCartResponse(await addCartItem(variationId, 1));
+      closeModal();
+    } catch (error) {
+      console.error("Não foi possível adicionar o item ao carrinho.", error);
+    }
+  });
+});
