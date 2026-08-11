@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias - SATIRE Admin</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <section class="page-section" data-page="categorias">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li>Home</li>
+                <li>Categorias</li>
+            </ol>
+        </nav>
+
+        <div class="page-header">
+            <div>
+                <h2>Categorias</h2>
+                <p>Cadastre categorias para organizar os produtos do sistema.</p>
+            </div>
+
+            <button class="primary-button" type="button" data-modal="categoria-form">+ Nova categoria</button>
+        </div>
+
+        <div class="filters-bar">
+            <div class="search-field">
+                <label for="pesquisa-categorias">Pesquisar categorias</label>
+                <input id="pesquisa-categorias" type="search" placeholder="Buscar por nome ou descrição">
+            </div>
+        </div>
+
+        <section class="table-card" aria-label="Tabela de categorias">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="categorias-tbody"></tbody>
+            </table>
+
+            <p class="empty-state" id="categorias-empty">Nenhuma categoria encontrada.</p>
+        </section>
+    </section>
+</body>
+</html>

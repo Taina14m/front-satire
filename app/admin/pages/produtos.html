@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - SATIRE Admin</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <section class="page-section" data-page="produtos">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li>Home</li>
+                <li>Produtos</li>
+            </ol>
+        </nav>
+
+        <div class="page-header">
+            <div>
+                <h2>Produtos</h2>
+                <p>Organize os produtos cadastrados para consulta e manutenção futura.</p>
+            </div>
+
+            <button class="primary-button" type="button" data-modal="produto-form">+ Novo produto</button>
+        </div>
+
+        <div class="filters-bar">
+            <div class="search-field">
+                <label for="pesquisa-produtos">Pesquisar produtos</label>
+                <input id="pesquisa-produtos" type="search" placeholder="Buscar por produto ou categoria">
+            </div>
+        </div>
+
+        <section class="table-card" aria-label="Tabela de produtos">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Estoque</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="produtos-tbody"></tbody>
+            </table>
+
+            <p class="empty-state" id="produtos-empty">Nenhum produto encontrado.</p>
+        </section>
+    </section>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários - SATIRE Admin</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <section class="page-section" data-page="usuarios">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li>Home</li>
+                <li>Usuários</li>
+            </ol>
+        </nav>
+
+        <div class="page-header">
+            <div>
+                <h2>Usuários</h2>
+                <p>Gerencie os usuários que terão acesso ao painel administrativo.</p>
+            </div>
+
+            <button class="primary-button" type="button" data-modal="usuario-form">+ Novo usuário</button>
+        </div>
+
+        <div class="filters-bar">
+            <div class="tabs" role="tablist" aria-label="Filtro de usuários">
+                <button class="tab active" type="button" role="tab" aria-selected="true" data-filter="ativos">Ativos</button>
+                <button class="tab" type="button" role="tab" aria-selected="false" data-filter="inativos">Inativos</button>
+            </div>
+
+            <div class="search-field">
+                <label for="pesquisa-usuarios">Pesquisar usuários</label>
+                <input id="pesquisa-usuarios" type="search" placeholder="Buscar por nome ou email">
+            </div>
+        </div>
+
+        <section class="table-card" aria-label="Tabela de usuários">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Senha</th>
+                        <th scope="col">Cargo</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="usuarios-tbody"></tbody>
+            </table>
+
+            <p class="empty-state" id="usuarios-empty">Nenhum usuário encontrado.</p>
+        </section>
+    </section>
+</body>
+</html>

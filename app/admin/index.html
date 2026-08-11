@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SATIRE Admin</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar" aria-label="Menu principal">
+            <div class="sidebar-header">
+                <h1>SATIRE Admin</h1>
+                <span>Painel acadêmico</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="menu-item active" type="button" data-section="overview">Visão Geral</button>
+                <button class="menu-item" type="button" data-section="usuarios">Usuários</button>
+                <button class="menu-item" type="button" data-section="produtos">Produtos</button>
+                <button class="menu-item" type="button" data-section="pedidos">Pedidos</button>
+                <button class="menu-item" type="button" data-section="categorias">Categorias</button>
+            </nav>
+        </aside>
+
+        <div class="main-area">
+            <header class="topbar">
+                <div>
+                    <strong>Dashboard</strong>
+                    <span>Administração do sistema SATIRE</span>
+                </div>
+
+                <div class="topbar-actions">
+                    <button type="button" aria-label="Abrir notificações">Notificações</button>
+                    <button type="button" aria-label="Abrir perfil do administrador">Admin</button>
+                </div>
+            </header>
+
+            <main class="content">
+                <div id="page-content">
+                    <section class="page-section" data-page="overview">
+                        <nav class="breadcrumb" aria-label="Breadcrumb">
+                            <ol>
+                                <li>Home</li>
+                                <li>Visão Geral</li>
+                            </ol>
+                        </nav>
+
+                        <div class="page-header">
+                            <div>
+                                <h2>Visão Geral</h2>
+                                <p>Resumo inicial dos principais cadastros do sistema.</p>
+                            </div>
+                        </div>
+
+                        <section class="summary-grid" aria-label="Resumo do sistema">
+                            <article class="summary-card">
+                                <span>Usuários</span>
+                                <strong>--</strong>
+                            </article>
+
+                            <article class="summary-card">
+                                <span>Produtos</span>
+                                <strong>--</strong>
+                            </article>
+
+                            <article class="summary-card">
+                                <span>Pedidos</span>
+                                <strong>--</strong>
+                            </article>
+
+                            <article class="summary-card">
+                                <span>Categorias</span>
+                                <strong>--</strong>
+                            </article>
+                        </section>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="modal-container" aria-live="polite"></div>
+
+    <div class="accessibility-toolkit">
+        <button class="accessibility-button" type="button" aria-label="Abrir ferramentas de acessibilidade" aria-expanded="false">
+            Acessibilidade
+        </button>
+
+        <div class="accessibility-menu" hidden>
+            <button type="button" data-action="increase-text">Aumentar texto</button>
+            <button type="button" data-action="decrease-text">Diminuir texto</button>
+            <button type="button" data-action="contrast">Alto contraste</button>
+            <button type="button" data-action="reset-accessibility">Restaurar padrão</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/toolkit.js"></script>
+</body>
+</html>
