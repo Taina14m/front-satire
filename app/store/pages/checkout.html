@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satire - Checkout</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/checkout.css">
+</head>
+<body>
+  <header class="header">
+    <a href="home.html" class="logo">
+      <span>S</span><span>A</span><span>T</span><span>I</span><span>R</span><span>E</span>
+    </a>
+    <nav class="header__nav">
+      <a href="orders.html" class="header__link">Meus Pedidos</a>
+      <button class="header__access-btn" id="access-toggle" aria-label="Acessibilidade" title="Acessibilidade">
+        <img src="../../store/assets/contrast.svg" alt="" width="20" height="20">
+      </button>
+      <div class="access-menu" id="access-menu">
+        <button class="access-menu__item" id="access-contrast">
+          <img src="../../store/assets/contrast.svg" alt="" width="16" height="16">
+          Alto contraste
+        </button>
+      </div>
+      <a href="#" class="header__btn header__btn--logout" id="btn-logout">Sair</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="checkout">
+      <h2 class="checkout__title">
+        <span>C</span><span>H</span><span>E</span><span>C</span><span>K</span><span>O</span><span>U</span><span>T</span>
+      </h2>
+
+      <div class="checkout__grid">
+        <!-- Resumo do pedido -->
+        <div class="checkout__summary">
+          <h3 class="checkout__section-title">Resumo do Pedido</h3>
+          <div class="checkout__items" id="checkout-items">
+            <p class="checkout__empty" id="checkout-empty">Nenhum item no carrinho.</p>
+          </div>
+          <div class="checkout__totals">
+            <div class="checkout__totals-row">
+              <span>Subtotal</span>
+              <span id="checkout-subtotal">R$ 0,00</span>
+            </div>
+            <div class="checkout__totals-row">
+              <span>Frete</span>
+              <span id="checkout-shipping">Grátis</span>
+            </div>
+            <div class="checkout__totals-row checkout__totals-row--total">
+              <span>Total</span>
+              <span id="checkout-total">R$ 0,00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulário de pagamento -->
+        <div class="checkout__payment">
+          <h3 class="checkout__section-title">Forma de Pagamento</h3>
+
+          <div class="payment-methods" id="payment-methods">
+            <label class="payment-method" data-method="pix">
+              <input type="radio" name="payment" value="pix" checked>
+              <div class="payment-method__content">
+                <svg class="payment-method__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="2"/>
+                  <path d="M12 6v12M6 12h12"/>
+                </svg>
+                <div class="payment-method__info">
+                  <span class="payment-method__name">PIX</span>
+                  <span class="payment-method__desc">Pagamento instantâneo</span>
+                </div>
+              </div>
+            </label>
+
+            <label class="payment-method" data-method="credit_card">
+              <input type="radio" name="payment" value="credit_card">
+              <div class="payment-method__content">
+                <svg class="payment-method__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="1" y="4" width="22" height="16" rx="2"/>
+                  <line x1="1" y1="10" x2="23" y2="10"/>
+                </svg>
+                <div class="payment-method__info">
+                  <span class="payment-method__name">Cartão de Crédito</span>
+                  <span class="payment-method__desc">Até 12x sem juros</span>
+                </div>
+              </div>
+            </label>
+
+            <label class="payment-method" data-method="boleto">
+              <input type="radio" name="payment" value="boleto">
+              <div class="payment-method__content">
+                <svg class="payment-method__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="1"/>
+                  <line x1="7" y1="7" x2="7" y2="17"/>
+                  <line x1="10" y1="7" x2="10" y2="17"/>
+                  <line x1="13" y1="7" x2="13" y2="13"/>
+                  <line x1="16" y1="7" x2="16" y2="17"/>
+                </svg>
+                <div class="payment-method__info">
+                  <span class="payment-method__name">Boleto Bancário</span>
+                  <span class="payment-method__desc">Vencimento em 3 dias úteis</span>
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <!-- Campos do cartão -->
+          <div class="card-fields" id="card-fields" style="display: none;">
+            <div class="form__group">
+              <label class="form__label" for="card-number">Número do Cartão</label>
+              <input type="text" class="form__input" id="card-number" placeholder="0000 0000 0000 0000" maxlength="19">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="card-name">Nome no Cartão</label>
+              <input type="text" class="form__input" id="card-name" placeholder="NOME COMO ESTÁ NO CARTÃO">
+            </div>
+            <div class="card-fields__row">
+              <div class="form__group">
+                <label class="form__label" for="card-expiry">Validade</label>
+                <input type="text" class="form__input" id="card-expiry" placeholder="MM/AA" maxlength="5">
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="card-cvv">CVV</label>
+                <input type="text" class="form__input" id="card-cvv" placeholder="000" maxlength="4">
+              </div>
+            </div>
+          </div>
+
+          <button class="checkout__btn-pay" id="btn-pay">
+            Confirmar Pagamento
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de confirmação -->
+  <div class="payment-confirm-overlay" id="payment-confirm-overlay">
+    <div class="payment-confirm">
+      <div class="payment-confirm__icon" id="confirm-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#27ae60" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+      </div>
+      <h3 class="payment-confirm__title" id="confirm-title">Pagamento Iniciado!</h3>
+      <p class="payment-confirm__msg" id="confirm-msg">Seu pedido foi criado com sucesso.</p>
+      <div class="payment-confirm__details" id="confirm-details"></div>
+      <a href="orders.html" class="payment-confirm__btn">Ver Meus Pedidos</a>
+    </div>
+  </div>
+
+  <script src="../../store/js/auth.js"></script>
+  <script src="../../store/js/accessibility.js"></script>
+  <script src="../../store/js/checkout.js"></script>
+  <script src="../../store/js/api.js"></script>
+
+</body>
+</html>

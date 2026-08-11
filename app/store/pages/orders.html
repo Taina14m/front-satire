@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satire - Meus Pedidos</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/orders.css">
+</head>
+<body>
+  <header class="header">
+    <a href="home.html" class="logo">
+      <span>S</span><span>A</span><span>T</span><span>I</span><span>R</span><span>E</span>
+    </a>
+    <nav class="header__nav">
+      <a href="home.html" class="header__link">Loja</a>
+      <button class="header__access-btn" id="access-toggle" aria-label="Acessibilidade" title="Acessibilidade">
+        <img src="../assets/images/contrast.svg" alt="" width="20" height="20">
+      </button>
+      <div class="access-menu" id="access-menu">
+        <button class="access-menu__item" id="access-contrast">
+          <img src="../assets/images/contrast.svg" alt="" width="16" height="16">
+          Alto contraste
+        </button>
+      </div>
+      <a href="#" class="header__btn header__btn--logout" id="btn-logout">Sair</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="orders">
+      <h2 class="orders__title">
+        <span>M</span><span>E</span><span>U</span><span>S</span>&nbsp;
+        <span>P</span><span>E</span><span>D</span><span>I</span><span>D</span><span>O</span><span>S</span>
+      </h2>
+
+      <div class="orders__list" id="orders-list">
+        <p class="orders__empty" id="orders-empty">Você ainda não fez nenhum pedido.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../store/js/accessibility.js"></script>
+  <script src="../../store/js/orders.js"></script>
+  <script src="../../store/js/api.js"></script>
+
+</body>
+</html>

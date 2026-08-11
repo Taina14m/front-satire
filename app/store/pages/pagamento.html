@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satire - Detalhes do Pagamento</title>
+  <link rel="stylesheet" href="../../store/css/global.css">
+  <link rel="stylesheet" href="../../store/css/payment.css">
+</head>
+<body>
+  <header class="header">
+    <a href="home.html" class="logo">
+      <span>S</span><span>A</span><span>T</span><span>I</span><span>R</span><span>E</span>
+    </a>
+    <nav class="header__nav">
+      <a href="orders.html" class="header__link">Meus Pedidos</a>
+      <button class="header__access-btn" id="access-toggle" aria-label="Acessibilidade" title="Acessibilidade">
+        <img src="../../store/assets/contrast.svg" alt="" width="20" height="20">
+      </button>
+      <div class="access-menu" id="access-menu">
+        <button class="access-menu__item" id="access-contrast">
+          <img src="../../store/assets/contrast.svg" alt="" width="16" height="16">
+          Alto contraste
+        </button>
+      </div>
+      <a href="orders.html" class="header__btn">Voltar</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="payment-detail">
+      <h2 class="payment-detail__title">
+        <span>P</span><span>A</span><span>G</span><span>A</span><span>M</span><span>E</span><span>N</span><span>T</span><span>O</span>
+      </h2>
+
+      <div class="payment-detail__card" id="payment-card">
+        <!-- Status -->
+        <div class="payment-detail__status" id="payment-status">
+          <span class="status-badge status-badge--pending">Pendente</span>
+        </div>
+
+        <!-- Informações principais -->
+        <div class="payment-detail__grid">
+          <div class="payment-detail__field">
+            <span class="payment-detail__label">ID do Pagamento</span>
+            <span class="payment-detail__value" id="payment-id">—</span>
+          </div>
+          <div class="payment-detail__field">
+            <span class="payment-detail__label">ID do Pedido</span>
+            <span class="payment-detail__value" id="payment-order-id">—</span>
+          </div>
+          <div class="payment-detail__field">
+            <span class="payment-detail__label">Método</span>
+            <span class="payment-detail__value" id="payment-method">—</span>
+          </div>
+          <div class="payment-detail__field">
+            <span class="payment-detail__label">Valor</span>
+            <span class="payment-detail__value payment-detail__value--price" id="payment-amount">—</span>
+          </div>
+          <div class="payment-detail__field">
+            <span class="payment-detail__label">Data</span>
+            <span class="payment-detail__value" id="payment-date">—</span>
+          </div>
+          <div class="payment-detail__field">
+            <span class="payment-detail__label">Atualizado em</span>
+            <span class="payment-detail__value" id="payment-updated">—</span>
+          </div>
+        </div>
+
+        <!-- Timeline do pagamento -->
+        <div class="payment-detail__timeline" id="payment-timeline">
+          <h4 class="payment-detail__timeline-title">Histórico</h4>
+          <ul class="timeline" id="timeline-list"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../store/js/acessibility.js"></script>
+  <script src="../../store/js/pagamento.js"></script>
+  <script src="../../store/js/api.js"></script>
+
+</body>
+</html>
