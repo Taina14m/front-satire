@@ -16,8 +16,8 @@
     <section class="page-section" data-page="produtos">
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <ol>
-                <li>Home</li>
-                <li>Produtos</li>
+                <li><button type="button" data-section-link="produtos">Home</button></li>
+                <li aria-current="page">Produtos</li>
             </ol>
         </nav>
 
@@ -27,7 +27,10 @@
                 <p>Organize os produtos cadastrados para consulta e manutenção futura.</p>
             </div>
 
-            <button class="primary-button" type="button" data-modal="produto-form">+ Novo produto</button>
+            <button class="primary-button" type="button" data-modal="produto-form">
+                <span class="material-symbols-outlined" aria-hidden="true">add</span>
+                Novo produto
+            </button>
         </div>
 
         <div class="filters-bar">

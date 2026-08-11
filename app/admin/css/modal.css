@@ -1,0 +1,103 @@
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.45);
+    z-index: 60;
+}
+
+.modal {
+    width: min(520px, 100%);
+    max-height: calc(100vh - 40px);
+    overflow: auto;
+    border-radius: var(--radius-medium);
+    background: var(--color-surface);
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.25);
+}
+
+.modal-header {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.modal-header h2 {
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.modal-close {
+    min-height: 34px;
+    padding: 0 10px;
+    border-radius: var(--radius-small);
+    color: var(--color-muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+}
+
+.modal-close:hover {
+    color: var(--color-text);
+    background: var(--color-surface-soft);
+}
+
+.modal-form,
+.modal-body {
+    padding: 22px;
+}
+
+.form-group + .form-group {
+    margin-top: 14px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--color-text);
+    font-size: 0.84rem;
+    font-weight: 600;
+}
+
+.modal-body p {
+    color: var(--color-muted);
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.pedido-detalhes dl {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.pedido-detalhes dl div {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.pedido-detalhes dt {
+    color: var(--color-muted);
+    font-weight: 700;
+}
+
+.pedido-detalhes dd {
+    font-weight: 600;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 22px 22px;
+    border-top: 1px solid var(--color-border);
+}

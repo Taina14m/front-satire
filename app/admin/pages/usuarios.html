@@ -16,8 +16,8 @@
     <section class="page-section" data-page="usuarios">
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <ol>
-                <li>Home</li>
-                <li>Usuários</li>
+                <li><button type="button" data-section-link="produtos">Home</button></li>
+                <li aria-current="page">Usuários</li>
             </ol>
         </nav>
 
@@ -27,7 +27,10 @@
                 <p>Gerencie os usuários que terão acesso ao painel administrativo.</p>
             </div>
 
-            <button class="primary-button" type="button" data-modal="usuario-form">+ Novo usuário</button>
+            <button class="primary-button" type="button" data-modal="usuario-form">
+                <span class="material-symbols-outlined" aria-hidden="true">add</span>
+                Novo usuário
+            </button>
         </div>
 
         <div class="filters-bar">
