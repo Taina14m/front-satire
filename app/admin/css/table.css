@@ -1,0 +1,79 @@
+.table-card {
+    overflow: hidden;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0 0 var(--radius-medium) var(--radius-medium);
+}
+
+thead {
+    background: var(--color-surface);
+}
+
+th,
+td {
+    height: 58px;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--color-border);
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+th {
+    color: var(--color-text);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+td {
+    color: var(--color-text);
+    font-size: 0.86rem;
+    font-weight: 500;
+}
+
+tbody tr:hover {
+    background: var(--color-surface-soft);
+}
+
+td:last-child,
+th:last-child {
+    text-align: right;
+}
+
+.table-actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.empty-state {
+    min-height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+    font-weight: 500;
+    border-top: 1px solid var(--color-border);
+}
+
+.empty-state.hidden {
+    display: none;
+}
+
+.table-card.has-data .empty-state {
+    display: none;
+}
+
+@media (max-width: 860px) {
+    .table-card {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 760px;
+    }
+}
