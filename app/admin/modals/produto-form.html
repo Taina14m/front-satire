@@ -1,0 +1,44 @@
+<div class="modal-backdrop">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="produto-form-title">
+        <header class="modal-header">
+            <h2 id="produto-form-title">Produto</h2>
+            <button class="modal-close" type="button" aria-label="Fechar modal">Fechar</button>
+        </header>
+
+        <form class="modal-form" id="produto-form">
+            <div class="form-group">
+                <label for="produto-nome">Nome</label>
+                <input id="produto-nome" name="nome" type="text" placeholder="Nome do produto">
+            </div>
+
+            <div class="form-group">
+                <label for="produto-categoria">Categoria</label>
+                <input id="produto-categoria" name="categoria" type="text" placeholder="Categoria do produto">
+            </div>
+
+            <div class="form-group">
+                <label for="produto-preco">Preço</label>
+                <input id="produto-preco" name="preco" type="number" step="0.01" min="0" placeholder="0,00">
+            </div>
+
+            <div class="form-group">
+                <label for="produto-estoque">Estoque</label>
+                <input id="produto-estoque" name="estoque" type="number" min="0" placeholder="0">
+            </div>
+
+            <div class="form-group">
+                <label for="produto-status">Status</label>
+                <select id="produto-status" name="status">
+                    <option value="">Selecione</option>
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                </select>
+            </div>
+
+            <footer class="modal-actions">
+                <button class="secondary-button" type="button" data-close-modal>Cancelar</button>
+                <button class="primary-button" type="submit">Salvar</button>
+            </footer>
+        </form>
+    </section>
+</div>

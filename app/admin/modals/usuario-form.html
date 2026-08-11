@@ -1,0 +1,35 @@
+<div class="modal-backdrop">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="usuario-form-title">
+        <header class="modal-header">
+            <h2 id="usuario-form-title">Usuário</h2>
+            <button class="modal-close" type="button" aria-label="Fechar modal">Fechar</button>
+        </header>
+
+        <form class="modal-form" id="usuario-form">
+            <div class="form-group">
+                <label for="usuario-nome">Nome</label>
+                <input id="usuario-nome" name="nome" type="text" placeholder="Nome do usuário">
+            </div>
+
+            <div class="form-group">
+                <label for="usuario-email">Email</label>
+                <input id="usuario-email" name="email" type="email" placeholder="email@exemplo.com">
+            </div>
+
+            <div class="form-group">
+                <label for="usuario-senha">Senha</label>
+                <input id="usuario-senha" name="senha" type="password" placeholder="Senha de acesso">
+            </div>
+
+            <div class="form-group">
+                <label for="usuario-cargo">Cargo</label>
+                <input id="usuario-cargo" name="cargo" type="text" placeholder="Cargo do usuário">
+            </div>
+
+            <footer class="modal-actions">
+                <button class="secondary-button" type="button" data-close-modal>Cancelar</button>
+                <button class="primary-button" type="submit">Salvar</button>
+            </footer>
+        </form>
+    </section>
+</div>
