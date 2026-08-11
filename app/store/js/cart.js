@@ -1,4 +1,4 @@
-const cart = [];
+let cart = [];
 
 const cartOverlay = document.getElementById('cart-overlay');
 const cartDrawer = document.getElementById('cart-drawer');
@@ -20,6 +20,14 @@ function closeCart() {
   cartDrawer.classList.remove('cart-drawer--active');
 }
 
+function parsePrice(str) {
+  return parseFloat(str.replace('R$', '').replace(/\./g, '').replace(',', '.'));
+}
+
+function formatPrice(value) {
+  return 'R$' + value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
 function updateBadge() {
   const count = cart.length;
   cartBadge.textContent = count;
@@ -30,21 +38,12 @@ function updateBadge() {
   }
 }
 
-function parsePrice(str) {
-  return parseFloat(str.replace('R$', '').replace(/\./g, '').replace(',', '.'));
-}
-
-function formatPrice(value) {
-  return 'R$' + value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-}
-
 function updateTotal() {
   const total = cart.reduce((sum, item) => sum + parsePrice(item.price), 0);
   cartTotal.textContent = formatPrice(total);
 }
 
 function renderCart() {
-  // Remove itens antigos (mantém o parágrafo vazio)
   const items = cartItems.querySelectorAll('.cart-item');
   items.forEach(item => item.remove());
 
@@ -71,13 +70,21 @@ function renderCart() {
   updateBadge();
 }
 
-function addToCart(name, price, color) {
-  cart.push({ name, price, color });
+async function loadCart() {
+  cart = await CartAPI.getItems();
   renderCart();
 }
 
-function removeFromCart(index) {
-  cart.splice(index, 1);
+async function addToCart(name, price, color) {
+  const item = { name, price, color };
+  await CartAPI.addItem(item);
+  cart = await CartAPI.getItems();
+  renderCart();
+}
+
+async function removeFromCart(index) {
+  await CartAPI.removeItem(index);
+  cart = await CartAPI.getItems();
   renderCart();
 }
 
@@ -106,11 +113,8 @@ cartItems.addEventListener('click', (e) => {
 
 cartCheckout.addEventListener('click', () => {
   if (cart.length === 0) return;
-  alert('Compra finalizada com sucesso!');
-  cart.length = 0;
-  renderCart();
-  closeCart();
+  window.location.href = 'checkout.html';
 });
 
 // Inicializa
-updateBadge();
+loadCart();
