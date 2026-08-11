@@ -1,0 +1,10 @@
+/* Estilos específicos da página de Login */
+
+body {
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .card__content {
+    padding: 40px 52px;
+  }
