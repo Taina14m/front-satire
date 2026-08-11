@@ -249,6 +249,7 @@
         <span class="cart__total-label">Total</span>
         <span class="cart__total-value" id="cart-total">R$0,00</span>
       </div>
+      <button class="cart__btn-checkout" id="cart-clear" type="button">Esvaziar carrinho</button>
       <button class="cart__btn-checkout" id="cart-checkout">Finalizar compra</button>
     </div>
   </aside>
@@ -262,15 +263,21 @@
         <h3 class="modal__title" id="modal-title">Nome do Boneco</h3>
         <p class="modal__info" id="modal-info">Informações do figure virão da API.</p>
         <p class="modal__price" id="modal-price">R$1.000,00</p>
+        <label for="modal-variation">Variação</label>
+        <select id="modal-variation" disabled>
+          <option>Selecione uma variação</option>
+        </select>
         <button class="modal__btn-add" id="modal-btn-cart">Adicionar ao carrinho</button>
       </div>
     </div>
   </div>
 
   <script src="../../store/js/acessibility.js"></script>
+  <script src="../../store/js/api.js"></script>
   <script src="../../store/js/carousel.js"></script>
   <script src="../../store/js/cart.js"></script>
   <script src="../../store/js/modal.js"></script>
+  <script src="../../store/js/catalog.js"></script>
   <script src="../../store/js/search.js"></script>
 </body>
 </html>
